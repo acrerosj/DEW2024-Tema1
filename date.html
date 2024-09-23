@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="date">---</h1>
+    <input type="datetime-local" name="" id="dateClient">
+    <button onclick="readDate()">Leer Fecha</button>
+    <script>
+        function readDate() {
+            let dateClientStr = document.getElementById('dateClient').value;
+            console.log(dateClientStr);
+            let now = new Date(dateClientStr);
+            let dateStr = new Intl.DateTimeFormat("es-ES", {
+              dateStyle: "full",
+              timeStyle: "full"
+            }).format(now);
+            document.getElementById('date').textContent=dateStr;
+        }
+    </script>
+</body>
+</html>
